@@ -1,0 +1,26 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/hustjhcgtest?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 123456
+
+
+#mybatis-plus:
+#  # 搜索指定包别名
+#  typea
+#  typeAliasesPackage: com.feicui.mybatisplus.plus.entity
+#  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+#  mapperLocations: classpath*:mapper/*.xml
+#  global-config:
+#    db-config:
+#      #      id-type: ASSIGN_UUID
+#      logic-delete-field: delFlag  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置@TableLogic)
+#      logic-delete-value: 2 # 逻辑已删除值(默认为 2)
+#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feicui.mybatisplus.plus.UserMapper.CgMatInfoDao">
+<!--  <resultMap id="BaseResultMap" type="com.feicui.mybatisplus.plus.entity.CgMatInfo">-->
+<!--    <result column="mat_id" jdbcType="BIGINT" property="matId" />-->
+<!--    <result column="mat_bar" jdbcType="VARCHAR" property="matBar" />-->
+<!--    <result column="mat_name" jdbcType="VARCHAR" property="matName" />-->
+<!--    <result column="mat_code" jdbcType="VARCHAR" property="matCode" />-->
+<!--    <result column="mat_attr_code" jdbcType="VARCHAR" property="matAttrCode" />-->
+<!--    <result column="mat_type" jdbcType="INTEGER" property="matType" />-->
+<!--    <result column="matc_type" jdbcType="BIGINT" property="matcType" />-->
+<!--    <result column="unit" jdbcType="VARCHAR" property="unit" />-->
+<!--    <result column="plan_price" jdbcType="DECIMAL" property="planPrice" />-->
+<!--    <result column="start_date" jdbcType="DATE" property="startDate" />-->
+<!--    <result column="user_create" jdbcType="VARCHAR" property="userCreate" />-->
+<!--    <result column="time_create" jdbcType="TIMESTAMP" property="timeCreate" />-->
+<!--    <result column="user_update" jdbcType="VARCHAR" property="userUpdate" />-->
+<!--    <result column="time_update" jdbcType="TIMESTAMP" property="timeUpdate" />-->
+<!--    <result column="user_create_id" jdbcType="BIGINT" property="userCreateId" />-->
+<!--    <result column="user_update_id" jdbcType="BIGINT" property="userUpdateId" />-->
+<!--    <result column="status" jdbcType="TINYINT" property="status" />-->
+<!--    <result column="mat_universal" jdbcType="TINYINT" property="matUniversal" />-->
+<!--  </resultMap>-->
+  <insert id="insert" parameterType="com.feicui.mybatisplus.plus.entity.CgMatInfo">
+    insert into cg_mat_info (mat_id, mat_bar, mat_name, 
+      mat_code, mat_attr_code, mat_type, 
+      matc_type, unit, plan_price, 
+      start_date, user_create, time_create, 
+      user_update, time_update, user_create_id, 
+      user_update_id, `status`, mat_universal
+      )
+    values (#{matId,jdbcType=BIGINT}, #{matBar,jdbcType=VARCHAR}, #{matName,jdbcType=VARCHAR}, 
+      #{matCode,jdbcType=VARCHAR}, #{matAttrCode,jdbcType=VARCHAR}, #{matType,jdbcType=INTEGER}, 
+      #{matcType,jdbcType=BIGINT}, #{unit,jdbcType=VARCHAR}, #{planPrice,jdbcType=DECIMAL}, 
+      #{startDate,jdbcType=DATE}, #{userCreate,jdbcType=VARCHAR}, #{timeCreate,jdbcType=TIMESTAMP}, 
+      #{userUpdate,jdbcType=VARCHAR}, #{timeUpdate,jdbcType=TIMESTAMP}, #{userCreateId,jdbcType=BIGINT}, 
+      #{userUpdateId,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{matUniversal,jdbcType=TINYINT}
+      )
+  </insert>
+  <!--进行判断式的新增-->
+  <insert id="insertSelective" parameterType="com.feicui.mybatisplus.plus.entity.CgMatInfo">
+    insert into cg_mat_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="matId != null">
+        mat_id,
+      </if>
+      <if test="matBar != null">
+        mat_bar,
+      </if>
+      <if test="matName != null">
+        mat_name,
+      </if>
+      <if test="matCode != null">
+        mat_code,
+      </if>
+      <if test="matAttrCode != null">
+        mat_attr_code,
+      </if>
+      <if test="matType != null">
+        mat_type,
+      </if>
+      <if test="matcType != null">
+        matc_type,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="planPrice != null">
+        plan_price,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="userCreate != null">
+        user_create,
+      </if>
+      <if test="timeCreate != null">
+        time_create,
+      </if>
+      <if test="userUpdate != null">
+        user_update,
+      </if>
+      <if test="timeUpdate != null">
+        time_update,
+      </if>
+      <if test="userCreateId != null">
+        user_create_id,
+      </if>
+      <if test="userUpdateId != null">
+        user_update_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="matUniversal != null">
+        mat_universal,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="matId != null">
+        #{matId,jdbcType=BIGINT},
+      </if>
+      <if test="matBar != null">
+        #{matBar,jdbcType=VARCHAR},
+      </if>
+      <if test="matName != null">
+        #{matName,jdbcType=VARCHAR},
+      </if>
+      <if test="matCode != null">
+        #{matCode,jdbcType=VARCHAR},
+      </if>
+      <if test="matAttrCode != null">
+        #{matAttrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="matType != null">
+        #{matType,jdbcType=INTEGER},
+      </if>
+      <if test="matcType != null">
+        #{matcType,jdbcType=BIGINT},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="planPrice != null">
+        #{planPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="userCreate != null">
+        #{userCreate,jdbcType=VARCHAR},
+      </if>
+      <if test="timeCreate != null">
+        #{timeCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userUpdate != null">
+        #{userUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="timeUpdate != null">
+        #{timeUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userCreateId != null">
+        #{userCreateId,jdbcType=BIGINT},
+      </if>
+      <if test="userUpdateId != null">
+        #{userUpdateId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="matUniversal != null">
+        #{matUniversal,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
