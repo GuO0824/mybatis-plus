@@ -46,9 +46,10 @@ public class UserController {
 
   @GetMapping("/select")
   @ApiOperation(value = "物资表信息查询")
-  public List<CgMatInfo> get(@ApiParam(value = "物资id") @RequestParam("matId")Integer matId) throws NoSuchFieldException, IllegalAccessException {
+  public List<CgMatInfo> get(@ApiParam(value = "物资id") @RequestParam("matId")Integer matId,
+                             @ApiParam(value = "name") @RequestParam(value = "name",required = false) Integer name) throws NoSuchFieldException, IllegalAccessException {
     List<CgMatInfo> mats = cgMatInfoDao.selectList(new QueryWrapper<CgMatInfo>().eq("mat_id", matId));
-    System.out.println(mats+"-------------------------");
+    System.out.println(mats+"-------------------------"+name);
 
     CgMatInfo cgMatInfo=new CgMatInfo();
 //    Field mat_id = cgMatInfo.getClass().getDeclaredField("matId");

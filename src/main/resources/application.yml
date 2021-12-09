@@ -5,7 +5,17 @@ spring:
     url: jdbc:mysql://localhost/hustjhcgtest?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: 123456
-
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    enabled: false
+    encoding: CESU-8
+    prefix: classpath:/templates/
+    suffix: .html
 
 #mybatis-plus:
 #  # 搜索指定包别名
@@ -24,3 +34,11 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 1234
+
+
+fdfs:
+  so-timeout: 48000
+  connect-timeout: 48000
+
