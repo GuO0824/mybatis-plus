@@ -7,9 +7,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
+
+/**
+ *    使用多线程的时候，往往需要创建Thread类，或者实现Runnable接口，如果要使用到线程池，我们还需要来创建Executors，
+ * 在使用spring中，已经给我们做了很好的支持。只要要@EnableAsync就可以使用多线程
+ * 通过spring给我们提供的ThreadPoolTaskExecutor就可以使用线程池。
+ * */
+//@Configuration 表示该类是一个配置类
 
 @Configuration
 @EnableAsync
@@ -31,7 +37,7 @@ public class ExecutorConfig {
   public Executor asyncServiceExecutor() {
     logger.info("start asyncServiceExecutor");
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-    //配置核心线程数
+    //配置核心线程数0
     executor.setCorePoolSize(corePoolSize);
     //配置最大线程数
     executor.setMaxPoolSize(maxPoolSize);

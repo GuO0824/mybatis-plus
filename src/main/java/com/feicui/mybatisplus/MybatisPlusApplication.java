@@ -10,7 +10,6 @@ import org.springframework.util.unit.DataSize;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.MultipartConfigElement;
-
 @SpringBootApplication
 @EnableSwagger2
 //@Import(FdfsClientConfig.class)

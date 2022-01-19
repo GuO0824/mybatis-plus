@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feicui.mybatisplus.plus.UserMapper.TuserMapper">
+
+    <!--根据文件的userId等于用户的id取数据-->
+    <insert id="add">
+        insert into t_user
+        (id,`username`,`password`)values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id}, #{item.username}, #{item.password})
+        </foreach>
+    </insert>
+
+</mapper>

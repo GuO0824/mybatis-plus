@@ -1,5 +1,6 @@
 package com.feicui.mybatisplus.plus.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.feicui.mybatisplus.plus.unit.FastDFSClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,7 +32,9 @@ public class FileUpload {
 
   @GetMapping("/downLoad")
   @ApiOperation(value = "流式文件下载")
+  @SentinelResource(value = "upload",fallback = "fallbackMonth")
   public void upload(HttpServletResponse response) throws IOException {
+    new RuntimeException("12122");
     HSSFWorkbook workbook = new HSSFWorkbook();
     // 创建一个sheet页
     HSSFSheet sheet = workbook.createSheet("指标模板");
@@ -70,7 +73,6 @@ public class FileUpload {
 //  @ResponseBody
   public void downloadFastDfs(@ApiParam(value = "文件id")
                               @RequestParam("fileId") String fileId,
-
       /*@ApiParam(value = "物资id") @RequestParam("fileId") String fileId,*/
                               HttpServletResponse response) throws Exception {
 //    String fileId1 = "group1/M00/00/00/wKiuimGxbQ6AbuDNAAM3TPfPRFM411.jpg";
@@ -114,5 +116,9 @@ public class FileUpload {
     outputStream.flush();
     outputStream.close();
     inputStream.close();
+  }
+  public String fallbackMonth(){
+    System.out.println("Sentinel===============异常处理");
+    return "Sentinel 异常处理";
   }
 }

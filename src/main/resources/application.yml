@@ -1,8 +1,7 @@
-
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/hustjhcgtest?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://localhost/hustjhcgtest?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&rewriteBatchedStatements=true
     username: root
     password: 123456
   servlet:
@@ -16,6 +15,13 @@ spring:
     encoding: CESU-8
     prefix: classpath:/templates/
     suffix: .html
+  application:
+    name: mybatis-plus
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
 
 #mybatis-plus:
 #  # 搜索指定包别名
@@ -30,10 +36,10 @@ spring:
 #      logic-delete-value: 2 # 逻辑已删除值(默认为 2)
 #      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
-
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 server:
   port: 1234
 
@@ -41,4 +47,8 @@ server:
 fdfs:
   so-timeout: 48000
   connect-timeout: 48000
+
+
+
+
 
