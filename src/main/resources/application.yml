@@ -36,10 +36,10 @@ spring:
 #      logic-delete-value: 2 # 逻辑已删除值(默认为 2)
 #      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
-#
-#mybatis-plus:
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 server:
   port: 1234
 
